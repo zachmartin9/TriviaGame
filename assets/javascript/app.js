@@ -54,7 +54,7 @@ currentQuestion();
 
 // Start Timer Function
 function startTimer() {
-    timer = 15 + 1;
+    timer = 10 + 1;
     intervalId = setInterval(decrement, 1000);
 }
 
@@ -65,6 +65,7 @@ function decrement() {
 
     if (timer === 0){
         clearInterval(intervalId);
+        $("#answers").text("");
         currentQuestion();
     }
 }
@@ -72,6 +73,10 @@ function decrement() {
 // Displays current question on the DOM
 function currentQuestion() {
     $("#question").text(triviaGame[i].question);
+
+    for (var j = 0; j < triviaGame[i].choices.length; j++) {
+        $("#answers").append(triviaGame[i].choices[j] + "<br>");
+    };
     i++;
     startTimer();
 }
