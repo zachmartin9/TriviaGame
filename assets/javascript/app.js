@@ -49,6 +49,8 @@ var triviaGame = [{
 var timer;
 var intervalId;
 var i = 0;
+var correctCounter = 0;
+var wrongCounter = 0;
 
 currentQuestion();
 
@@ -56,7 +58,7 @@ currentQuestion();
 function startTimer() {
     timer = 10 + 1;
     intervalId = setInterval(decrement, 1000);
-}
+};
 
 // Decrement Function for Timer
 function decrement() {
@@ -65,19 +67,89 @@ function decrement() {
 
     if (timer === 0){
         clearInterval(intervalId);
-        $("#answers").text("");
+        i++;
         currentQuestion();
     }
-}
+};
 
 // Displays current question on the DOM
 function currentQuestion() {
-    $("#question").text(triviaGame[i].question);
-
-    for (var j = 0; j < triviaGame[i].choices.length; j++) {
-        $("#answers").append(triviaGame[i].choices[j] + "<br>");
+    if (i > 9) {
+        alert("Correct: " + correctCounter + " Incorrect: " + wrongCounter)
     };
-    i++;
-    startTimer();
+
+    $("#question").text(triviaGame[i].question);
+    $("#firstAnswer").text(triviaGame[i].choices[0]);
+    $("#secondAnswer").text(triviaGame[i].choices[1]);
+    $("#thirdAnswer").text(triviaGame[i].choices[2]);
+    $("#fourthAnswer").text(triviaGame[i].choices[3]);
+
+    startTimer();  
 }
+
+$("#firstAnswer").on("click", function() {
+    if (triviaGame[i].choices[0] === triviaGame[i].correct) {
+        correctCounter++;
+        console.log(correctCounter);
+        clearInterval(intervalId);
+        i++;
+        currentQuestion();
+    } else {
+        wrongCounter++;
+        console.log(wrongCounter);
+        clearInterval(intervalId);
+        i++;
+        currentQuestion();
+    }     
+})
+
+$("#secondAnswer").on("click", function() {
+    if (triviaGame[i].choices[1] === triviaGame[i].correct) {
+        correctCounter++;
+        console.log(correctCounter);
+        clearInterval(intervalId);
+        i++;
+        currentQuestion();
+    } else {
+        wrongCounter++;
+        console.log(wrongCounter);
+        clearInterval(intervalId);
+        i++;
+        currentQuestion();
+    }     
+})
+
+$("#thirdAnswer").on("click", function() {
+    if (triviaGame[i].choices[2] === triviaGame[i].correct) {
+        correctCounter++;
+        console.log(correctCounter);
+        clearInterval(intervalId);
+        i++;
+        currentQuestion();
+    } else {
+        wrongCounter++;
+        console.log(wrongCounter);
+        clearInterval(intervalId);
+        i++;
+        currentQuestion();
+    }     
+})
+
+$("#fourthAnswer").on("click", function() {
+    if (triviaGame[i].choices[3] === triviaGame[i].correct) {
+        correctCounter++;
+        console.log(correctCounter);
+        clearInterval(intervalId);
+        i++;
+        currentQuestion();
+    } else {
+        wrongCounter++;
+        console.log(wrongCounter);
+        clearInterval(intervalId);
+        i++;
+        currentQuestion();
+    }     
+})
+
+
 
