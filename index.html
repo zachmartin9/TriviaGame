@@ -10,25 +10,27 @@
     </head>
 
     <body>
-        <!-- Header for Trivia Game -->
-        <h1>Bears. Beets. Battlestar Galactica!</h1>
-
-        <!-- Time Remaining for Question -->
-        <h2>Time Remaining: <span id="timeRemaining"></span></h2>
-
-        <!-- Trivia Question -->
-        <h2 id="question">Question</h2>
-
-        <!-- Container for Trivia Multiple Choice -->
         <div class="container">
+            <!-- Header for Trivia Game -->
+            <h1>The Office Trivia Game!</h1>
 
-            <!-- Multiple Choice Answers -->
-            <h3 id="firstAnswer"></h3>
-            <h3 id="secondAnswer"></h3>
-            <h3 id="thirdAnswer"></h3>
-            <h3 id="fourthAnswer"></h3>
+            <!-- Time Remaining for Question -->
+            <h2>Time Remaining: <span id="timeRemaining"></span></h2>
+
+            <!-- Container for Trivia Multiple Choice -->
+            <div id="multipleChoice">
+                <!-- Trivia Question -->
+                <h2 id="question">Question</h2>
+
+                <!-- Multiple Choice Answers -->
+                <h3>a. <span id="firstAnswer"></span></h3>
+                <h3>b. <span id="secondAnswer"></span></h3>
+                <h3>c. <span id="thirdAnswer"></span></h3>
+                <h3>d. <span id="fourthAnswer"></span></h3>
+            </div>
 
         </div>
+        
 
         <!-- Link to jQuery Library -->
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
