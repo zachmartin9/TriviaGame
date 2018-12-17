@@ -21,6 +21,11 @@ body {
     font-size: 18px;
 }
 
+#correct, #incorrect {
+    color: #fff;
+    font-size: 18px;
+}
+
 h1 {
     color: #fff;
     font-size: 24px;

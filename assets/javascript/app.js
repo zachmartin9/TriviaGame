@@ -88,7 +88,15 @@ function decrement() {
 // Displays current question on the DOM
 function currentQuestion() {
     if (i > 9) {
-        alert("Correct: " + correctCounter + " Incorrect: " + wrongCounter)
+        $("#correct").text("Correct: " + correctCounter);
+        $("#incorrect").text("Incorrect: " + wrongCounter);
+        $("#timeRemaining").text("");
+        $("#question").text("");
+        $("#firstAnswer").text("");
+        $("#secondAnswer").text("");
+        $("#thirdAnswer").text("");
+        $("#fourthAnswer").text("");
+        // alert("Correct: " + correctCounter + " Incorrect: " + wrongCounter)
     };
 
     $("#question").text(triviaGame[i].question);
@@ -103,13 +111,11 @@ function currentQuestion() {
 $("#firstAnswer").on("click", function() {
     if (triviaGame[i].choices[0] === triviaGame[i].correct) {
         correctCounter++;
-        console.log(correctCounter);
         clearInterval(intervalId);
         i++;
         currentQuestion();
     } else {
         wrongCounter++;
-        console.log(wrongCounter);
         clearInterval(intervalId);
         i++;
         currentQuestion();
@@ -119,13 +125,11 @@ $("#firstAnswer").on("click", function() {
 $("#secondAnswer").on("click", function() {
     if (triviaGame[i].choices[1] === triviaGame[i].correct) {
         correctCounter++;
-        console.log(correctCounter);
         clearInterval(intervalId);
         i++;
         currentQuestion();
     } else {
         wrongCounter++;
-        console.log(wrongCounter);
         clearInterval(intervalId);
         i++;
         currentQuestion();
@@ -135,13 +139,11 @@ $("#secondAnswer").on("click", function() {
 $("#thirdAnswer").on("click", function() {
     if (triviaGame[i].choices[2] === triviaGame[i].correct) {
         correctCounter++;
-        console.log(correctCounter);
         clearInterval(intervalId);
         i++;
         currentQuestion();
     } else {
         wrongCounter++;
-        console.log(wrongCounter);
         clearInterval(intervalId);
         i++;
         currentQuestion();
@@ -151,13 +153,11 @@ $("#thirdAnswer").on("click", function() {
 $("#fourthAnswer").on("click", function() {
     if (triviaGame[i].choices[3] === triviaGame[i].correct) {
         correctCounter++;
-        console.log(correctCounter);
         clearInterval(intervalId);
         i++;
         currentQuestion();
     } else {
         wrongCounter++;
-        console.log(wrongCounter);
         clearInterval(intervalId);
         i++;
         currentQuestion();
