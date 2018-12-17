@@ -16,6 +16,11 @@ body {
     border-radius: 20px;
 }
 
+#startGame {
+    color: #fff;
+    font-size: 18px;
+}
+
 h1 {
     color: #fff;
     font-size: 24px;

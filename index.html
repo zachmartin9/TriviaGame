@@ -11,11 +11,14 @@
 
     <body>
         <div class="container">
+
             <!-- Header for Trivia Game -->
             <h1>The Office Trivia Game!</h1>
 
+            <div id="startGame"></div>
+
             <!-- Time Remaining for Question -->
-            <h2>Time Remaining: <span id="timeRemaining"></span></h2>
+            <h2 id="timeRemaining"></h2>
 
             <!-- Container for Trivia Multiple Choice -->
             <div id="multipleChoice">
@@ -23,12 +26,12 @@
                 <h2 id="question">Question</h2>
 
                 <!-- Multiple Choice Answers -->
-                <h3>a. <span id="firstAnswer"></span></h3>
-                <h3>b. <span id="secondAnswer"></span></h3>
-                <h3>c. <span id="thirdAnswer"></span></h3>
-                <h3>d. <span id="fourthAnswer"></span></h3>
+                <h3 id="firstAnswer"></h3>
+                <h3 id="secondAnswer"></h3>
+                <h3 id="thirdAnswer"></h3>
+                <h3 id="fourthAnswer"></h3>
             </div>
-
+                
         </div>
         
 
@@ -37,6 +40,5 @@
 
         <!-- Link to JavaScript Script -->
         <script type="text/javascript" src="assets/javascript/app.js"></script>
-        
     </body>
 </html>

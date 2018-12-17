@@ -52,18 +52,31 @@ var i = 0;
 var correctCounter = 0;
 var wrongCounter = 0;
 
-currentQuestion();
+$("#startGame").text("Press any button to begin");
+$("#question").text("");
+$("#firstAnswer").text("");
+$("#secondAnswer").text("");
+$("#thirdAnswer").text("");
+$("#fourthAnswer").text("");
+
+document.onkeyup = function() {
+    $("#startGame").text("")
+    currentQuestion();
+}
+
+// currentQuestion();
 
 // Start Timer Function
 function startTimer() {
-    timer = 10 + 1;
+    timer = 15 + 1;
     intervalId = setInterval(decrement, 1000);
+    decrement();
 };
 
 // Decrement Function for Timer
 function decrement() {
     timer--;
-    $("#timeRemaining").text(timer)
+    $("#timeRemaining").text("Time Remaining: " + timer)
 
     if (timer === 0){
         clearInterval(intervalId);
@@ -79,10 +92,10 @@ function currentQuestion() {
     };
 
     $("#question").text(triviaGame[i].question);
-    $("#firstAnswer").text(triviaGame[i].choices[0]);
-    $("#secondAnswer").text(triviaGame[i].choices[1]);
-    $("#thirdAnswer").text(triviaGame[i].choices[2]);
-    $("#fourthAnswer").text(triviaGame[i].choices[3]);
+    $("#firstAnswer").text("a. " + triviaGame[i].choices[0]);
+    $("#secondAnswer").text("b. " + triviaGame[i].choices[1]);
+    $("#thirdAnswer").text("c. " + triviaGame[i].choices[2]);
+    $("#fourthAnswer").text("d. " + triviaGame[i].choices[3]);
 
     startTimer();  
 }
