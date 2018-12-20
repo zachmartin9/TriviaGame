@@ -16,12 +16,7 @@ body {
     border-radius: 20px;
 }
 
-#startGame {
-    color: #fff;
-    font-size: 18px;
-}
-
-#correct, #incorrect {
+#startGame, #correct, #incorrect, #playAgain {
     color: #fff;
     font-size: 18px;
 }
@@ -49,4 +44,9 @@ h3 {
     width: 70%;
     text-align: left;
     margin-left: 15%;
+}
+
+h3:hover {
+    font-size: 20px;
+    text-shadow: 0px 0px 2px gold;
 }

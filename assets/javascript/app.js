@@ -39,13 +39,14 @@ var triviaGame = [{
     choices: ["Stanley", "Angela", "Creed" , "Phyllis"],
     correct: "Phyllis"
   }, {
-    question: "What dies Dunder Mifflin sell when the company was first founded in 1949?",
+    question: "What does Dunder Mifflin sell when the company was first founded in 1949?",
     choices: ["Metal brackets", "Ink for printing presses", "Mufflers" , "Muffins"],
     correct: "Metal brackets"
   }
-
 ];
+console.log(triviaGame.length);
 
+var game = 0;
 var timer;
 var intervalId;
 var i = 0;
@@ -53,18 +54,28 @@ var correctCounter = 0;
 var wrongCounter = 0;
 
 $("#startGame").text("Press any button to begin");
-$("#question").text("");
-$("#firstAnswer").text("");
-$("#secondAnswer").text("");
-$("#thirdAnswer").text("");
-$("#fourthAnswer").text("");
 
 document.onkeyup = function() {
-    $("#startGame").text("")
-    currentQuestion();
+    // Press any button to start Trivia Game
+    if (game === 0) {
+        $("#startGame").text("")
+        currentQuestion();
+        game = 1;
+    } 
+    // Press any button to restart Trivia Game
+    else if (game === 2) {
+        i = 0;
+        game = 1;
+        // Reset end game text to clear
+        $("#playAgain").text("");
+        $("#correct").text("");
+        $("#incorrect").text("");
+        // Reset correct and incorrect counter
+        correctCounter = 0;
+        wrongCounter = 0;
+        currentQuestion();
+    } 
 }
-
-// currentQuestion();
 
 // Start Timer Function
 function startTimer() {
@@ -78,6 +89,7 @@ function decrement() {
     timer--;
     $("#timeRemaining").text("Time Remaining: " + timer)
 
+    // When time expires continue to next question
     if (timer === 0){
         clearInterval(intervalId);
         i++;
@@ -87,18 +99,23 @@ function decrement() {
 
 // Displays current question on the DOM
 function currentQuestion() {
-    if (i > 9) {
+    // After all last question display Correct and Incorrect and clear Trivia game text
+    if (i >= triviaGame.length) {
         $("#correct").text("Correct: " + correctCounter);
         $("#incorrect").text("Incorrect: " + wrongCounter);
+        $("#playAgain").text("Press any button to play again!")
         $("#timeRemaining").text("");
         $("#question").text("");
         $("#firstAnswer").text("");
         $("#secondAnswer").text("");
         $("#thirdAnswer").text("");
         $("#fourthAnswer").text("");
-        // alert("Correct: " + correctCounter + " Incorrect: " + wrongCounter)
+
+        game = 2;
+
     };
 
+    // Start game display question and multiple choice
     $("#question").text(triviaGame[i].question);
     $("#firstAnswer").text("a. " + triviaGame[i].choices[0]);
     $("#secondAnswer").text("b. " + triviaGame[i].choices[1]);
@@ -108,6 +125,7 @@ function currentQuestion() {
     startTimer();  
 }
 
+// Event listener for click on first multiple choice answer
 $("#firstAnswer").on("click", function() {
     if (triviaGame[i].choices[0] === triviaGame[i].correct) {
         correctCounter++;
@@ -122,6 +140,7 @@ $("#firstAnswer").on("click", function() {
     }     
 })
 
+// Event listener for click on second multiple choice answer
 $("#secondAnswer").on("click", function() {
     if (triviaGame[i].choices[1] === triviaGame[i].correct) {
         correctCounter++;
@@ -136,6 +155,7 @@ $("#secondAnswer").on("click", function() {
     }     
 })
 
+// Event listener for click on third multiple choice answer
 $("#thirdAnswer").on("click", function() {
     if (triviaGame[i].choices[2] === triviaGame[i].correct) {
         correctCounter++;
@@ -150,6 +170,7 @@ $("#thirdAnswer").on("click", function() {
     }     
 })
 
+// Event listener for click on fourth multiple choice answer
 $("#fourthAnswer").on("click", function() {
     if (triviaGame[i].choices[3] === triviaGame[i].correct) {
         correctCounter++;
@@ -163,6 +184,4 @@ $("#fourthAnswer").on("click", function() {
         currentQuestion();
     }     
 })
-
-
 
