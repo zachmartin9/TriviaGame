@@ -128,11 +128,13 @@ function currentQuestion() {
 // Event listener for click on first multiple choice answer
 $("#firstAnswer").on("click", function() {
     if (triviaGame[i].choices[0] === triviaGame[i].correct) {
+        alert("Correct!")
         correctCounter++;
         clearInterval(intervalId);
         i++;
         currentQuestion();
     } else {
+        alert("The correct answer is: " + triviaGame[i].correct);
         wrongCounter++;
         clearInterval(intervalId);
         i++;
@@ -143,11 +145,13 @@ $("#firstAnswer").on("click", function() {
 // Event listener for click on second multiple choice answer
 $("#secondAnswer").on("click", function() {
     if (triviaGame[i].choices[1] === triviaGame[i].correct) {
+        alert("Correct!")
         correctCounter++;
         clearInterval(intervalId);
         i++;
         currentQuestion();
     } else {
+        alert("The correct answer is: " + triviaGame[i].correct);
         wrongCounter++;
         clearInterval(intervalId);
         i++;
@@ -158,11 +162,13 @@ $("#secondAnswer").on("click", function() {
 // Event listener for click on third multiple choice answer
 $("#thirdAnswer").on("click", function() {
     if (triviaGame[i].choices[2] === triviaGame[i].correct) {
+        alert("Correct!")
         correctCounter++;
         clearInterval(intervalId);
         i++;
         currentQuestion();
     } else {
+        alert("The correct answer is: " + triviaGame[i].correct);
         wrongCounter++;
         clearInterval(intervalId);
         i++;
@@ -173,11 +179,13 @@ $("#thirdAnswer").on("click", function() {
 // Event listener for click on fourth multiple choice answer
 $("#fourthAnswer").on("click", function() {
     if (triviaGame[i].choices[3] === triviaGame[i].correct) {
+        alert("Correct!")
         correctCounter++;
         clearInterval(intervalId);
         i++;
         currentQuestion();
     } else {
+        alert("The correct answer is: " + triviaGame[i].correct);
         wrongCounter++;
         clearInterval(intervalId);
         i++;
